@@ -4,34 +4,54 @@ import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
 import { FiLayout, FiPenTool, FiTag, FiLayers, FiType } from "react-icons/fi";
 import { FaPaintBrush, FaSwatchbook } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaRegEnvelope,
+  FaBehance,
+  FaDribbble,
+} from "react-icons/fa6";
 
-// HighlightCard component
-const HighlightCard = ({ icon, text, desc }) => (
+// HighlightCard component with colored icons
+const HighlightCard = ({ icon, text, desc, color }) => (
   <motion.div
-    className="flex items-start gap-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-    whileHover={{ y: -3 }}
+    className="flex items-start gap-3 p-4 bg-gray-800/80 backdrop-blur-sm rounded-xl hover:shadow-lg transition-all duration-300 border border-gray-700 hover:border-gray-600"
+    whileHover={{ y: -5 }}
   >
-    <div className="p-2 bg-blue-50 rounded-full">{icon}</div>
+    <div className={`p-2 rounded-full ${color.bg}`}>{icon}</div>
     <div>
-      <h4 className="font-medium text-gray-800">{text}</h4>
-      <p className="text-sm text-gray-500">{desc}</p>
+      <h4 className="font-medium text-gray-100">{text}</h4>
+      <p className="text-sm text-gray-400 mt-1">{desc}</p>
     </div>
   </motion.div>
 );
 
-// SkillTag component
-const SkillTag = ({ name, icon }) => (
+// SkillTag component with color variations
+const SkillTag = ({ name, icon, color }) => (
   <motion.span
-    className="px-4 py-2 bg-white text-blue-700 rounded-full text-sm font-medium shadow-sm cursor-pointer flex items-center gap-2 hover:shadow-md transition-all"
+    className={`px-4 py-2 rounded-full text-sm font-medium shadow-sm cursor-pointer flex items-center gap-2 hover:bg-opacity-80 transition-all border ${color.bg} ${color.border} ${color.text} ${color.hover}`}
     whileHover={{
       scale: 1.05,
-      backgroundColor: "#3B82F6",
-      color: "#FFFFFF",
     }}
   >
     {icon}
     {name}
   </motion.span>
+);
+
+// SocialLink component with hover colors
+const SocialLink = ({ href, icon, label, color }) => (
+  <motion.a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`p-3 rounded-full transition-colors ${color.base} ${color.hover}`}
+    aria-label={label}
+    whileHover={{ scale: 1.2, rotate: 5 }}
+    whileTap={{ scale: 0.9 }}
+  >
+    {icon}
+  </motion.a>
 );
 
 // Custom hook for role rotation
@@ -50,37 +70,119 @@ const useRoleRotation = (roles, interval = 3000) => {
   return currentRole;
 };
 
+// Color palette
+const COLORS = {
+  primary: {
+    text: "text-teal-400",
+    bg: "bg-teal-400/10",
+    border: "border-teal-400/20",
+    hover: "hover:bg-teal-400/20",
+  },
+  secondary: {
+    text: "text-amber-400",
+    bg: "bg-amber-400/10",
+    border: "border-amber-400/20",
+    hover: "hover:bg-amber-400/20",
+  },
+  accent: {
+    text: "text-rose-400",
+    bg: "bg-rose-400/10",
+    border: "border-rose-400/20",
+    hover: "hover:bg-rose-400/20",
+  },
+  neutral: {
+    text: "text-gray-300",
+    bg: "bg-gray-700/50",
+    border: "border-gray-600",
+    hover: "hover:bg-gray-600",
+  },
+};
+
 // Constants
-const ROLES = ["Desainer Grafis", "Illustrator", "Brand Specialist"];
+const ROLES = [
+  "Desainer Grafis",
+  "Copywriter",
+  "Brand Strategist",
+  "Illustrator",
+];
 
 const HIGHLIGHTS = [
   {
-    icon: <FaPaintBrush className="text-blue-500 text-xl" />,
-    text: "Desain yang bersih & estetis",
-    desc: "Fokus pada kesederhanaan dan keindahan visual",
+    icon: <FaPaintBrush className="text-teal-400 text-xl" />,
+    text: "Desain Minimalis & Estetis",
+    desc: "Kesederhanaan yang elegan dengan fokus pada detail",
+    color: {
+      bg: "bg-teal-400/20",
+    },
   },
   {
-    icon: <FiLayout className="text-blue-500 text-xl" />,
-    text: "Komunikasi visual efektif",
-    desc: "Penyampaian pesan melalui desain yang kuat",
+    icon: <FiType className="text-amber-400 text-xl" />,
+    text: "Copywriting Persuasif",
+    desc: "Pesan yang menggerakkan emosi dan tindakan",
+    color: {
+      bg: "bg-amber-400/20",
+    },
   },
   {
-    icon: <FaSwatchbook className="text-blue-500 text-xl" />,
-    text: "Solusi branding kreatif",
+    icon: <FaSwatchbook className="text-rose-400 text-xl" />,
+    text: "Solusi Branding Kreatif",
     desc: "Identitas visual yang konsisten dan memorable",
+    color: {
+      bg: "bg-rose-400/20",
+    },
   },
   {
-    icon: <FiLayers className="text-blue-500 text-xl" />,
-    text: "Pengalaman UI/UX Design",
-    desc: "Desain yang berpusat pada pengguna",
+    icon: <FiPenTool className="text-indigo-400 text-xl" />,
+    text: "Storytelling Visual",
+    desc: "Narasi kuat melalui kombinasi teks dan gambar",
+    color: {
+      bg: "bg-indigo-400/20",
+    },
   },
 ];
 
 const SKILLS = [
-  { name: "Branding", icon: <FiTag size={14} /> },
-  { name: "UI Design", icon: <FiLayout size={14} /> },
-  { name: "Illustration", icon: <FiPenTool size={14} /> },
-  { name: "Typography", icon: <FiType size={14} /> },
+  { name: "Brand Identity", icon: <FiTag size={14} />, color: COLORS.primary },
+  {
+    name: "UI/UX Design",
+    icon: <FiLayout size={14} />,
+    color: COLORS.secondary,
+  },
+  { name: "Illustration", icon: <FiPenTool size={14} />, color: COLORS.accent },
+  { name: "Typography", icon: <FiType size={14} />, color: COLORS.primary },
+  {
+    name: "Copywriting",
+    icon: <FiPenTool size={14} />,
+    color: COLORS.secondary,
+  },
+  { name: "Art Direction", icon: <FiLayers size={14} />, color: COLORS.accent },
+];
+
+const SOCIAL_LINKS = [
+  {
+    href: "https://dribbble.com/",
+    icon: <FaDribbble />,
+    label: "Dribbble",
+    color: { base: "text-pink-400", hover: "hover:bg-pink-400/10" },
+  },
+  {
+    href: "https://behance.net/",
+    icon: <FaBehance />,
+    label: "Behance",
+    color: { base: "text-blue-400", hover: "hover:bg-blue-400/10" },
+  },
+  {
+    href: "https://linkedin.com/",
+    icon: <FaLinkedin />,
+    label: "LinkedIn",
+    color: { base: "text-sky-400", hover: "hover:bg-sky-400/10" },
+  },
+  {
+    href: "mailto:hello@example.com",
+    icon: <FaRegEnvelope />,
+    label: "Email",
+    color: { base: "text-gray-300", hover: "hover:bg-gray-600" },
+  },
 ];
 
 export default function AboutMe() {
@@ -113,13 +215,11 @@ export default function AboutMe() {
     <section
       id="about"
       ref={ref}
-      className="relative w-full min-h-screen bg-gradient-to-br from-gray-50 via-indigo-50 to-white py-20 px-4 sm:py-28 sm:px-6 overflow-hidden"
+      className="relative w-full min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 py-20 px-4 sm:py-28 sm:px-6 overflow-hidden"
     >
-      {/* Blob background */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+      {/* Subtle texture background */}
+      <div className="absolute inset-0 overflow-hidden z-0 opacity-20">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
       </div>
 
       <motion.div
@@ -130,13 +230,16 @@ export default function AboutMe() {
       >
         {/* Title */}
         <motion.div className="mb-16 text-center" variants={itemVariants}>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 relative inline-block">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-100 relative inline-block font-['Inter']">
             <span className="relative z-10">
-              Tentang <span className="text-blue-600">Saya</span>
+              Tentang <span className="text-teal-400">Saya</span>
             </span>
+            <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400/30 via-amber-400/30 to-rose-400/30 -z-10"></span>
           </h2>
-          <p className="mt-4 text-gray-500">
-            Mengenal lebih dekat kreativitas saya
+          <p className="mt-4 text-gray-400">
+            Mengenal lebih dekat{" "}
+            <span className="text-amber-300">kreativitas</span> dan{" "}
+            <span className="text-rose-300">keahlian</span> saya
           </p>
         </motion.div>
 
@@ -149,8 +252,8 @@ export default function AboutMe() {
             whileHover={{ scale: 1.02 }}
           >
             <div className="relative group">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl opacity-30 group-hover:opacity-50 blur-md transition-all duration-300"></div>
-              <div className="relative overflow-hidden rounded-xl shadow-2xl border-4 border-white transform rotate-1 group-hover:rotate-0 transition-all duration-500">
+              <div className="absolute -inset-4 bg-gradient-to-r from-teal-400/20 via-amber-400/20 to-rose-400/20 rounded-2xl opacity-30 group-hover:opacity-50 blur-md transition-all duration-300"></div>
+              <div className="relative overflow-hidden rounded-xl shadow-2xl border-4 border-gray-700 transform rotate-1 group-hover:rotate-0 transition-all duration-500">
                 <img
                   src={profileImage}
                   alt="Wahyu Puji Sasongko"
@@ -167,56 +270,67 @@ export default function AboutMe() {
             className="w-full lg:w-3/5 space-y-6"
             variants={itemVariants}
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-100">
               Wahyu Puji Sasongko
             </h3>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-0.5 bg-blue-400"></div>
+              <div className="w-8 h-0.5 bg-gradient-to-r from-teal-400 to-amber-400"></div>
               <motion.span
                 key={currentRole}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
                 transition={{ duration: 0.4 }}
-                className="text-blue-600 font-medium italic"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-amber-400 font-medium italic"
               >
                 {currentRole}
               </motion.span>
             </div>
 
-            <p className="text-gray-600 leading-relaxed pl-4 border-l-4 border-blue-300 bg-blue-50/50 p-4 rounded-r-lg">
+            <p className="text-gray-300 leading-relaxed pl-4 border-l-4 border-teal-400/50 bg-gray-800/50 p-4 rounded-r-lg">
               Halo! Saya seorang{" "}
-              <span className="font-semibold text-blue-600">
+              <span className="font-semibold text-teal-300">
                 desainer grafis
               </span>{" "}
+              dan{" "}
+              <span className="font-semibold text-amber-300">copywriter</span>{" "}
               dengan passion menciptakan karya visual yang tidak hanya indah
-              tetapi juga menyampaikan pesan dengan kuat. Saya percaya bahwa
-              desain yang baik adalah perpaduan antara estetika dan fungsi.
+              tetapi juga didukung oleh{" "}
+              <span className="text-rose-300">pesan verbal yang kuat</span>.
+              Saya percaya bahwa desain yang baik adalah perpaduan antara
+              estetika, fungsi, dan narasi yang menyeluruh.
             </p>
 
-            {/* Highlight */}
+            {/* Highlights */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {HIGHLIGHTS.map((item, i) => (
                 <HighlightCard key={i} {...item} />
               ))}
             </div>
 
-            {/* Skill Tags */}
+            {/* Skills */}
             <div className="flex flex-wrap gap-3 mt-6">
               {SKILLS.map((skill, i) => (
                 <SkillTag key={i} {...skill} />
               ))}
             </div>
 
+            {/* Contact Links */}
+            <div className="flex items-center gap-2 mt-8">
+              {SOCIAL_LINKS.map((link, i) => (
+                <SocialLink key={i} {...link} />
+              ))}
+            </div>
+
             <motion.div
-              className="mt-10 flex items-center gap-3 text-blue-400 italic"
+              className="mt-10 flex items-center gap-3 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-amber-400 italic"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
             >
-              <div className="w-10 h-0.5 bg-blue-200"></div>
+              <div className="w-10 h-0.5 bg-gradient-to-r from-teal-400/50 to-amber-400/50"></div>
               <span className="text-sm md:text-base">
-                Creating meaningful visual experiences
+                Where design meets storytelling
               </span>
             </motion.div>
           </motion.div>
