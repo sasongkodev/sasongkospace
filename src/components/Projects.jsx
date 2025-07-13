@@ -84,29 +84,59 @@ const designProjects = {
   ],
 };
 
-// Kompasiana articles data
+// Kompasiana articles data (3 artikel seperti versi awal)
 const kompasianaArticles = [
   {
+    id: 5,
     title: "Cara Jitu Bidik Biasiswa Luar Negeri",
     description: "Begini cara jitu bidik dan dapat beasiswa luar negeri.",
-    image:
+    fullDescription:
+      "Artikel ini membahas strategi lengkap untuk mendapatkan beasiswa ke luar negeri, mulai dari persiapan dokumen hingga tips wawancara. Berdasarkan pengalaman pribadi penulis yang berhasil mendapatkan beasiswa ke 3 universitas berbeda di Eropa.",
+    imageUrl:
       "https://assets-a1.kompasiana.com/items/album/2021/06/26/vasily-koloda-8cqdvpuo-ki-unsplash-60d7458370620d3d6a205662.jpg?t=o&v=1200",
+    tags: ["Pendidikan", "Beasiswa"],
+    year: 2021,
+    category: "Copywriting",
+    client: "Kompasiana",
+    deliverables: ["Online Article"],
     url: "https://www.kompasiana.com/wahyupujis17/60d7466406310e2b17462492/cara-jitu-bidik-biasiswa-luar-negeri",
+    readTime: "5 min read",
+    publishedDate: "June 26, 2021",
   },
   {
+    id: 6,
     title: "Lima Rasa Percaya Diri yang Perlu Kita Hindari",
     description:
       "Segala sesuatu yang berlebihan itu buruk, termasuk kepercayaan diri.",
-    image:
+    fullDescription:
+      "Artikel ini mengupas lima jenis kepercayaan diri berlebihan yang justru bisa merugikan diri sendiri dan hubungan dengan orang lain. Dilengkapi dengan contoh kasus dan solusi untuk menyeimbangkan kepercayaan diri.",
+    imageUrl:
       "https://assets-a1.kompasiana.com/items/album/2021/06/29/karl-magnuson-85j99sgggnw-unsplash-60db1497152510202b4a5ae2.jpg?t=o&v=1200",
+    tags: ["Psikologi", "Pengembangan Diri"],
+    year: 2021,
+    category: "Copywriting",
+    client: "Kompasiana",
+    deliverables: ["Online Article"],
     url: "https://www.kompasiana.com/wahyupujis17/60db157a06310e299f7d76d2/lima-rasa-percaya-diri-yang-perlu-kita-hindari",
+    readTime: "4 min read",
+    publishedDate: "June 29, 2021",
   },
   {
+    id: 7,
     title: "Amunisi Wajib Seorang Backpacker",
     description: "Persiapan yang harus dimiliki oleh backpacker pemula",
-    image:
+    fullDescription:
+      "Panduan lengkap untuk backpacker pemula yang ingin melakukan perjalanan mandiri. Berisi daftar perlengkapan wajib, tips mengatur budget, dan strategi packing yang efisien berdasarkan pengalaman penjelajahan ke 15 negara.",
+    imageUrl:
       "https://assets-a1.kompasiana.com/items/album/2021/06/28/dokpri-60d8bcbcbb44860258311032.jpg?t=o&v=1200",
+    tags: ["Traveling", "Backpacker"],
+    year: 2021,
+    category: "Copywriting",
+    client: "Kompasiana",
+    deliverables: ["Online Article"],
     url: "https://www.kompasiana.com/wahyupujis17/60d8bd4506310e1194338032/amunisi-wajib-seorang-backpacker",
+    readTime: "6 min read",
+    publishedDate: "June 28, 2021",
   },
 ];
 
@@ -176,7 +206,7 @@ const ProjectCard = ({ project, onClick }) => {
         </div>
 
         {/* Link indicator for copywriting projects */}
-        {project.link && (
+        {project.url && (
           <div className="flex items-center text-sm text-blue-600">
             <FiLink className="mr-1" />
             <span>Kompasiana Article</span>
@@ -186,6 +216,139 @@ const ProjectCard = ({ project, onClick }) => {
     </motion.div>
   );
 };
+
+const ProjectModal = ({ project, onClose }) => {
+  return (
+    <motion.div
+      className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <motion.div
+        className="bg-gray-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
+        initial={{ scale: 0.9, y: 20 }}
+        animate={{ scale: 1, y: 0 }}
+        exit={{ scale: 0.9, y: 20 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          className="absolute top-4 right-4 text-gray-400 hover:text-white p-2"
+          onClick={onClose}
+        >
+          <FiX className="w-6 h-6" />
+        </button>
+
+        <div className="p-8">
+          {project.category === "Copywriting" ? (
+            <ArticleContent project={project} />
+          ) : (
+            <DesignContent project={project} />
+          )}
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+const DesignContent = ({ project }) => (
+  <div className="space-y-8">
+    <div className="flex flex-col md:flex-row gap-8">
+      <div className="md:w-1/2">
+        <img
+          src={project.imageUrl}
+          alt={project.title}
+          className="rounded-lg w-full h-auto shadow-lg"
+        />
+      </div>
+      <div className="md:w-1/2">
+        <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+        <p className="text-gray-300 mt-2">{project.fullDescription}</p>
+
+        <div className="mt-6">
+          <h4 className="text-lg font-medium text-white mb-4">
+            Project Details
+          </h4>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <p className="text-gray-400 text-sm">Client</p>
+              <p className="text-white">{project.client}</p>
+            </div>
+            <div>
+              <p className="text-gray-400 text-sm">Year</p>
+              <p className="text-white">{project.year}</p>
+            </div>
+            <div className="col-span-2">
+              <p className="text-gray-400 text-sm">Deliverables</p>
+              <div className="flex flex-wrap gap-2 mt-1">
+                {project.deliverables.map((item, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1 bg-gray-700 rounded-full text-sm text-white"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {project.colorPalette && (
+      <div className="mt-8">
+        <h4 className="text-xl font-bold text-white mb-4">Color Palette</h4>
+        <div className="grid grid-cols-5 gap-4">
+          {project.colorPalette.map((color, i) => (
+            <div key={i} className="flex flex-col items-center">
+              <div
+                className="w-full h-16 rounded-lg mb-2 border border-gray-600"
+                style={{ backgroundColor: color.hex }}
+              />
+              <p className="text-white text-sm">{color.name}</p>
+              <p className="text-gray-400 text-xs">{color.hex}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+);
+
+const ArticleContent = ({ project }) => (
+  <div className="space-y-6">
+    <div className="flex flex-col md:flex-row gap-8">
+      <div className="md:w-1/3">
+        <img
+          src={project.imageUrl}
+          alt={project.title}
+          className="rounded-lg w-full h-auto shadow-lg"
+        />
+      </div>
+      <div className="md:w-2/3">
+        <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+        <div className="flex items-center gap-4 mt-2 text-gray-400 text-sm">
+          <span>{project.publishedDate}</span>
+          <span>•</span>
+          <span>{project.readTime}</span>
+        </div>
+        <p className="text-gray-300 mt-4">{project.fullDescription}</p>
+
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center mt-6 px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-white transition-colors"
+        >
+          <FiExternalLink className="mr-2" />
+          Baca Artikel Lengkap di Kompasiana
+        </a>
+      </div>
+    </div>
+  </div>
+);
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -202,10 +365,10 @@ export default function Projects() {
   ];
 
   useEffect(() => {
-    // Combine all projects with their categories
+    // Combine design projects with their categories
     let allProjects = [];
 
-    // Add design projects with their categories
+    // Add design projects
     Object.entries(designProjects).forEach(([category, projects]) => {
       allProjects = [
         ...allProjects,
@@ -216,23 +379,8 @@ export default function Projects() {
       ];
     });
 
-    // Add copywriting articles
-    const writingProjects = kompasianaArticles.map((article, i) => ({
-      id: allProjects.length + i + 1,
-      title: article.title,
-      description: article.description,
-      fullDescription: article.description,
-      imageUrl: article.image,
-      category: "Copywriting",
-      year: 2021,
-      tags: ["Artikel", "Kompasiana"],
-      featured: false,
-      client: "Kompasiana",
-      deliverables: ["Online Article", "Content Writing"],
-      link: article.url,
-    }));
-
-    setProjectsList([...allProjects, ...writingProjects]);
+    // Add copywriting articles (3 artikel seperti versi awal)
+    setProjectsList([...allProjects, ...kompasianaArticles]);
   }, []);
 
   const filteredProjects = projectsList.filter(
@@ -310,5 +458,3 @@ export default function Projects() {
     </section>
   );
 }
-
-// ProjectModal component remains the same as in your previous code
