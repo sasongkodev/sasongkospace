@@ -3,7 +3,7 @@ import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
+  
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
