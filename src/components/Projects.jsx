@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Design projects by category
 const designProjects = {
-  Branding: [
+  "Desain Grafis": [
     {
       id: 1,
       title: "Brand Identity for Coffee Haven",
@@ -15,7 +15,7 @@ const designProjects = {
         "Developed comprehensive brand identity for a specialty coffee chain with 12 locations across Indonesia. Created custom wordmark, iconography, packaging system, and interior branding elements with a color palette inspired by Indonesian coffee beans and traditional batik textiles.",
       year: 2023,
       imageUrl:
-        "https://images.unsplash.com/photo-1559496417-e7f25cb247f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80",
+        "https://www.dropbox.com/scl/fi/osh82a6nlaj4tmbj5ihba/kopi.jpeg?rlkey=jk1l70fdpeyn8azso2rbtvjlz&raw=1",
       tags: ["Logo Design", "Packaging", "Visual Identity"],
       featured: true,
       colorPalette: [
@@ -33,24 +33,6 @@ const designProjects = {
         "Merchandise",
       ],
     },
-  ],
-  "UI/UX": [
-    {
-      id: 2,
-      title: "Fitness Tracker Mobile App",
-      description: "User interface design for a fitness tracking application.",
-      fullDescription:
-        "Designed the complete UI/UX for a fitness tracking app with over 50,000 active users. Created a custom illustration system for workout categories and achievements.",
-      year: 2022,
-      imageUrl:
-        "https://images.unsplash.com/photo-1551969014-7d2c4cddf0b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80",
-      tags: ["Mobile Design", "User Experience", "Prototyping"],
-      featured: false,
-      client: "FitTrack Inc.",
-      deliverables: ["UI Kit", "Prototypes", "Design System"],
-    },
-  ],
-  Editorial: [
     {
       id: 3,
       title: "Fashion Magazine Design",
@@ -66,25 +48,39 @@ const designProjects = {
       client: "Vogue Indonesia",
       deliverables: ["Magazine Layouts", "Editorial Spreads"],
     },
-  ],
-  Packaging: [
     {
       id: 4,
-      title: "Organic Skincare Packaging",
-      description: "Sustainable packaging system for an organic skincare line.",
+      title: "Malindo Food Pack",
+      description: "Malindo Food Pack",
       fullDescription:
         "Created minimalist designs using eco-friendly materials and printing techniques to reflect the brand's environmental values while maintaining premium appeal.",
       year: 2022,
       imageUrl:
-        "https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80",
+        "https://www.dropbox.com/scl/fi/kscpimyobd0p7k4m0u3as/pack.jpeg?rlkey=5tqup4ksnj0u42lq76xrlr26i&raw=1",
       tags: ["Sustainable Design", "3D Mockups"],
       client: "Green Beauty Co.",
       deliverables: ["Primary Packaging", "Secondary Packaging"],
     },
   ],
+  "UI/UX": [
+    {
+      id: 2,
+      title: "Tajuk Tani Mobile App UI/UX",
+      description: "Tajuk Tani application design with modern interface",
+      fullDescription:
+        "Designed a complete Tani app UI with booking system, itinerary planner, and social features. Created a custom illustration system for destinations and activities.",
+      year: 2023,
+      imageUrl:
+        "https://www.dropbox.com/scl/fi/z7195xn4er4z7yeeswkbo/mobile.jpeg?rlkey=um0x5kmv29umza7dhyust5qox&raw=1",
+      tags: ["Mobile Design", "User Experience", "Prototyping"],
+      featured: false,
+      client: "TravelGo Inc.",
+      deliverables: ["UI Kit", "Prototypes", "Design System"],
+    },
+  ],
 };
 
-// Kompasiana articles data (3 artikel seperti versi awal)
+// Kompasiana articles data
 const kompasianaArticles = [
   {
     id: 5,
@@ -146,13 +142,12 @@ const ProjectCard = ({ project, onClick }) => {
 
   return (
     <motion.div
-      className="relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
+      className="relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl border border-gray-200"
       whileHover={{ y: -5 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => onClick(project)}
     >
-      {/* Project Image */}
       <div className="relative h-64 overflow-hidden cursor-pointer">
         <motion.img
           src={project.imageUrl}
@@ -163,12 +158,10 @@ const ProjectCard = ({ project, onClick }) => {
           transition={{ duration: 0.5 }}
         />
 
-        {/* Category Badge */}
         <div className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
           {project.category}
         </div>
 
-        {/* Like Button */}
         <button
           className={`absolute top-4 right-4 p-2 rounded-full backdrop-blur-sm transition-colors ${
             isLiked
@@ -184,7 +177,6 @@ const ProjectCard = ({ project, onClick }) => {
         </button>
       </div>
 
-      {/* Project Details */}
       <div className="p-6">
         <div className="flex justify-between items-start mb-2">
           <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
@@ -193,7 +185,6 @@ const ProjectCard = ({ project, onClick }) => {
 
         <p className="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
 
-        {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-6">
           {project.tags.map((tag, index) => (
             <span
@@ -205,7 +196,6 @@ const ProjectCard = ({ project, onClick }) => {
           ))}
         </div>
 
-        {/* Link indicator for copywriting projects */}
         {project.url && (
           <div className="flex items-center text-sm text-blue-600">
             <FiLink className="mr-1" />
@@ -227,14 +217,14 @@ const ProjectModal = ({ project, onClose }) => {
       onClick={onClose}
     >
       <motion.div
-        className="bg-gray-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
+        className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 20 }}
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          className="absolute top-4 right-4 text-gray-400 hover:text-white p-2"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 p-2"
           onClick={onClose}
         >
           <FiX className="w-6 h-6" />
@@ -263,29 +253,29 @@ const DesignContent = ({ project }) => (
         />
       </div>
       <div className="md:w-1/2">
-        <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-        <p className="text-gray-300 mt-2">{project.fullDescription}</p>
+        <h3 className="text-2xl font-bold text-gray-900">{project.title}</h3>
+        <p className="text-gray-700 mt-2">{project.fullDescription}</p>
 
         <div className="mt-6">
-          <h4 className="text-lg font-medium text-white mb-4">
+          <h4 className="text-lg font-medium text-gray-900 mb-4">
             Project Details
           </h4>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <p className="text-gray-400 text-sm">Client</p>
-              <p className="text-white">{project.client}</p>
+              <p className="text-gray-500 text-sm">Client</p>
+              <p className="text-gray-900">{project.client}</p>
             </div>
             <div>
-              <p className="text-gray-400 text-sm">Year</p>
-              <p className="text-white">{project.year}</p>
+              <p className="text-gray-500 text-sm">Year</p>
+              <p className="text-gray-900">{project.year}</p>
             </div>
             <div className="col-span-2">
-              <p className="text-gray-400 text-sm">Deliverables</p>
+              <p className="text-gray-500 text-sm">Deliverables</p>
               <div className="flex flex-wrap gap-2 mt-1">
                 {project.deliverables.map((item, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 bg-gray-700 rounded-full text-sm text-white"
+                    className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-800"
                   >
                     {item}
                   </span>
@@ -299,16 +289,16 @@ const DesignContent = ({ project }) => (
 
     {project.colorPalette && (
       <div className="mt-8">
-        <h4 className="text-xl font-bold text-white mb-4">Color Palette</h4>
+        <h4 className="text-xl font-bold text-gray-900 mb-4">Color Palette</h4>
         <div className="grid grid-cols-5 gap-4">
           {project.colorPalette.map((color, i) => (
             <div key={i} className="flex flex-col items-center">
               <div
-                className="w-full h-16 rounded-lg mb-2 border border-gray-600"
+                className="w-full h-16 rounded-lg mb-2 border border-gray-300"
                 style={{ backgroundColor: color.hex }}
               />
-              <p className="text-white text-sm">{color.name}</p>
-              <p className="text-gray-400 text-xs">{color.hex}</p>
+              <p className="text-gray-900 text-sm">{color.name}</p>
+              <p className="text-gray-500 text-xs">{color.hex}</p>
             </div>
           ))}
         </div>
@@ -328,13 +318,13 @@ const ArticleContent = ({ project }) => (
         />
       </div>
       <div className="md:w-2/3">
-        <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-        <div className="flex items-center gap-4 mt-2 text-gray-400 text-sm">
+        <h3 className="text-2xl font-bold text-gray-900">{project.title}</h3>
+        <div className="flex items-center gap-4 mt-2 text-gray-500 text-sm">
           <span>{project.publishedDate}</span>
           <span>•</span>
           <span>{project.readTime}</span>
         </div>
-        <p className="text-gray-300 mt-4">{project.fullDescription}</p>
+        <p className="text-gray-700 mt-4">{project.fullDescription}</p>
 
         <a
           href={project.url}
@@ -351,24 +341,14 @@ const ArticleContent = ({ project }) => (
 );
 
 export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState("Desain Grafis");
   const [selectedProject, setSelectedProject] = useState(null);
   const [projectsList, setProjectsList] = useState([]);
 
-  const categories = [
-    "All",
-    "Branding",
-    "UI/UX",
-    "Editorial",
-    "Packaging",
-    "Copywriting",
-  ];
+  const categories = ["Desain Grafis", "UI/UX", "Copywriting"];
 
   useEffect(() => {
-    // Combine design projects with their categories
     let allProjects = [];
-
-    // Add design projects
     Object.entries(designProjects).forEach(([category, projects]) => {
       allProjects = [
         ...allProjects,
@@ -379,33 +359,37 @@ export default function Projects() {
       ];
     });
 
-    // Add copywriting articles (3 artikel seperti versi awal)
-    setProjectsList([...allProjects, ...kompasianaArticles]);
+    // Add copywriting articles with their category
+    const writingProjects = kompasianaArticles.map((article) => ({
+      ...article,
+      category: "Copywriting",
+    }));
+
+    setProjectsList([...allProjects, ...writingProjects]);
   }, []);
 
-  const filteredProjects = projectsList.filter(
-    (project) => activeFilter === "All" || project.category === activeFilter
-  );
+  const filteredProjects = projectsList.filter((project) => {
+    if (activeFilter === "All") return true;
+    return project.category === activeFilter;
+  });
 
   return (
-    <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
+    <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            My <span className="text-blue-400">Creative Portfolio</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            My <span className="text-blue-600">Creative Portfolio</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             A showcase of my design projects and published articles.
           </p>
         </motion.div>
 
-        {/* Filter Controls */}
         <motion.div
           className="flex flex-wrap justify-center gap-3 mb-12"
           initial={{ opacity: 0 }}
@@ -418,7 +402,7 @@ export default function Projects() {
               className={`px-5 py-2 rounded-full font-medium transition-all ${
                 activeFilter === category
                   ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
-                  : "bg-gray-800 text-gray-300 hover:bg-gray-700 shadow-sm"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 shadow-sm"
               }`}
               onClick={() => setActiveFilter(category)}
               whileHover={{ scale: 1.05 }}
@@ -429,7 +413,6 @@ export default function Projects() {
           ))}
         </motion.div>
 
-        {/* Projects Grid */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial={{ opacity: 0 }}
@@ -446,7 +429,6 @@ export default function Projects() {
         </motion.div>
       </div>
 
-      {/* Project Modal */}
       <AnimatePresence>
         {selectedProject && (
           <ProjectModal

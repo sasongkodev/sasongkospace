@@ -160,25 +160,20 @@ const SKILLS = [
 
 const SOCIAL_LINKS = [
   {
-    href: "https://dribbble.com/",
-    icon: <FaDribbble />,
-    label: "Dribbble",
-    color: { base: "text-pink-400", hover: "hover:bg-pink-400/10" },
+    href: "https://github.com/sasongkodev", // Replace with actual GitHub URL
+    icon: <FaGithub />,
+    label: "GitHub",
+    color: { base: "text-gray-300", hover: "hover:bg-gray-600" },
   },
+
   {
-    href: "https://behance.net/",
-    icon: <FaBehance />,
-    label: "Behance",
-    color: { base: "text-blue-400", hover: "hover:bg-blue-400/10" },
-  },
-  {
-    href: "https://linkedin.com/",
+    href: "https://www.linkedin.com/in/wahyu-puji-sasongko-435a24207/",
     icon: <FaLinkedin />,
     label: "LinkedIn",
     color: { base: "text-sky-400", hover: "hover:bg-sky-400/10" },
   },
   {
-    href: "mailto:hello@example.com",
+    href: "mailto:sapa@wahyupuji.com",
     icon: <FaRegEnvelope />,
     label: "Email",
     color: { base: "text-gray-300", hover: "hover:bg-gray-600" },
