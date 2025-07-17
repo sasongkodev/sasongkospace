@@ -134,6 +134,78 @@ const kompasianaArticles = [
     readTime: "6 min read",
     publishedDate: "June 28, 2021",
   },
+  {
+    id: 8,
+    title:
+      "5 AI Open Source Terbaik di 2025: Pilihan Teratas untuk Developer dan Data Scientist",
+    description:
+      "Temukan 5 AI open source terbaik di 2025, termasuk TensorFlow, PyTorch, DeepSeek AI, Hugging Face Transformers, dan OpenAI Whisper. Solusi AI gratis & canggih!",
+    fullDescription:
+      "Artikel ini membahas secara mendalam 5 framework AI open source terbaik di tahun 2025 yang wajib diketahui oleh developer dan data scientist. Kami mengulas fitur utama, kelebihan, dan penggunaan praktis dari masing-masing tools tersebut.",
+    imageUrl:
+      "https://ngobrolit.com/wp-content/uploads/2025/02/image-1024x576.png",
+    tags: ["Teknologi", "AI", "Open Source"],
+    year: 2025,
+    category: "Copywriting",
+    client: "NgobrolIT",
+    deliverables: ["Online Article"],
+    url: "https://ngobrolit.com/5-ai-open-source-terbaik-di-2025-pilihan-teratas-untuk-developer-dan-data-scientist/",
+    readTime: "6 min read",
+    publishedDate: "February 2025",
+  },
+  {
+    id: 9,
+    title: "Tips Jitu Mengatasi Mental Block Programmer di Tahun 2025",
+    description:
+      "Mental block saat ngoding bisa menghambat produktivitas programmer. Temukan cara mengatasi mental block dengan teknik relaksasi, pomodoro, dan strategi manajemen waktu yang efektif",
+    fullDescription:
+      "Artikel ini memberikan solusi praktis untuk mengatasi mental block yang sering dialami programmer. Kami membahas berbagai teknik mulai dari manajemen waktu, teknik relaksasi, hingga pendekatan psikologis untuk meningkatkan produktivitas coding.",
+    imageUrl:
+      "https://ngobrolit.com/wp-content/uploads/2025/01/Mental-Block.jpg",
+    tags: ["Programming", "Produktivitas"],
+    year: 2025,
+    category: "Copywriting",
+    client: "NgobrolIT",
+    deliverables: ["Online Article"],
+    url: "https://ngobrolit.com/tips-jitu-mengatasi-mental-block-programmer-di-tahun-2025/",
+    readTime: "5 min read",
+    publishedDate: "January 2025",
+  },
+  {
+    id: 10,
+    title: "Mengapa Blogger Sulit Menyaingi WordPress dalam Hal SEO?",
+    description:
+      "Search Engine Optimization (SEO) adalah serangkaian strategi dan teknik yang digunakan untuk meningkatkan visibilitas suatu situs web di mesin pencari, seperti Google.",
+    fullDescription:
+      "Analisis mendalam tentang perbedaan kemampuan SEO antara platform Blogger dan WordPress. Artikel ini membahas faktor teknis, fleksibilitas, dan fitur-fitur yang membuat WordPress unggul dalam hal optimasi mesin pencari.",
+    imageUrl: "https://ngobrolit.com/wp-content/uploads/2024/12/seo.jpg",
+    tags: ["SEO", "Blogging"],
+    year: 2024,
+    category: "Copywriting",
+    client: "NgobrolIT",
+    deliverables: ["Online Article"],
+    url: "https://ngobrolit.com/mengapa-blogger-sulit-menyaingi-wordpress-dalam-hal-seo/",
+    readTime: "7 min read",
+    publishedDate: "December 2024",
+  },
+  {
+    id: 11,
+    title:
+      "Inilah Mengapa Python Tetap Menjadi Bahasa Pemrograman Terbaik untuk Dipelajari di 2025",
+    description:
+      "Pelajari mengapa Python tetap menjadi bahasa pemrograman terbaik untuk dipelajari di tahun 2025. Mudah dipelajari, serbaguna, dan relevan untuk karir teknologi masa depan.",
+    fullDescription:
+      "Pembahasan komprehensif tentang keunggulan Python di tahun 2025. Artikel ini mencakup perkembangan terbaru Python, aplikasinya di berbagai bidang seperti AI, data science, dan web development, serta prospek karir untuk pengembang Python.",
+    imageUrl: "https://ngobrolit.com/wp-content/uploads/2025/01/image.png",
+    tags: ["Programming", "Python"],
+    year: 2025,
+    category: "Copywriting",
+    client: "NgobrolIT",
+    deliverables: ["Online Article"],
+    url: "https://ngobrolit.com/python-bahasa-pemrograman-terbaik-2025/",
+    readTime: "8 min read",
+    publishedDate: "January 2025",
+  },
 ];
 
 const ProjectCard = ({ project, onClick }) => {
@@ -199,7 +271,7 @@ const ProjectCard = ({ project, onClick }) => {
         {project.url && (
           <div className="flex items-center text-sm text-blue-600">
             <FiLink className="mr-1" />
-            <span>Kompasiana Article</span>
+            <span>Read Article</span>
           </div>
         )}
       </div>
@@ -333,7 +405,7 @@ const ArticleContent = ({ project }) => (
           className="inline-flex items-center mt-6 px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-white transition-colors"
         >
           <FiExternalLink className="mr-2" />
-          Baca Artikel Lengkap di Kompasiana
+          Baca Artikel Lengkap
         </a>
       </div>
     </div>

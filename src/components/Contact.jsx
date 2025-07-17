@@ -1,14 +1,8 @@
 // src/components/Contact.jsx
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FaPhone, FaMapMarkerAlt, FaClock } from "react-icons/fa";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaRegEnvelope,
-  FaBehance,
-  FaDribbble,
-} from "react-icons/fa6";
+import { FaPhone, FaRegEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Contact = () => {
   const [ref, inView] = useInView({ threshold: 0.1 });
@@ -17,7 +11,7 @@ const Contact = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
@@ -26,69 +20,40 @@ const Contact = () => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.4 },
     },
   };
 
   const socialLinks = [
     {
-      href: "https://github.com/",
-      icon: <FaGithub />,
+      href: "https://github.com/ ",
+      icon: <FaGithub className="text-lg" />,
       label: "GitHub",
-      color: "hover:bg-gray-600",
     },
     {
-      href: "https://dribbble.com/",
-      icon: <FaDribbble />,
-      label: "Dribbble",
-      color: "hover:bg-pink-400/10 text-pink-400",
+      href: "https://twitter.com/ ",
+      icon: <FaTwitter className="text-lg" />,
+      label: "Twitter",
     },
     {
-      href: "https://behance.net/",
-      icon: <FaBehance />,
-      label: "Behance",
-      color: "hover:bg-blue-400/10 text-blue-400",
-    },
-    {
-      href: "https://www.linkedin.com/in/wahyu-puji-sasongko-435a24207/",
-      icon: <FaLinkedin />,
+      href: "https://linkedin.com/ ",
+      icon: <FaLinkedin className="text-lg" />,
       label: "LinkedIn",
-      color: "hover:bg-sky-400/10 text-sky-400",
-    },
-    {
-      href: "mailto:sapa@wahyupuji.com",
-      icon: <FaRegEnvelope />,
-      label: "Email",
-      color: "hover:bg-gray-600 text-gray-300",
     },
   ];
 
   const contactInfo = [
     {
-      icon: <FaRegEnvelope className="text-xl" />,
+      icon: <FaRegEnvelope className="text-lg" />,
       title: "Email",
       value: "sapa@wahyupuji.com",
       link: "mailto:sapa@wahyupuji.com",
-      color: "text-teal-400",
     },
     {
-      icon: <FaPhone className="text-xl" />,
-      title: "Telepon",
+      icon: <FaPhone className="text-lg" />,
+      title: "Phone",
       value: "+62 812-3456-7890",
       link: "tel:+6281234567890",
-      color: "text-amber-400",
-    },
-    {
-      icon: <FaMapMarkerAlt className="text-xl" />,
-      title: "Lokasi",
-      value: "Yogyakarta, Indonesia",
-      color: "text-rose-400",
-    },
-    {
-      icon: <FaClock className="text-xl" />,
-      title: "Jam Kerja",
-      value: "Senin - Jumat, 09:00 - 17:00 WIB",
-      color: "text-indigo-400",
     },
   ];
 
@@ -96,66 +61,55 @@ const Contact = () => {
     <section
       id="contact"
       ref={ref}
-      className="relative w-full min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 py-20 px-4 sm:py-28 sm:px-6 overflow-hidden"
+      className="w-full py-20 px-4 sm:px-6 bg-gray-50"
     >
-      {/* Background texture */}
-      <div className="absolute inset-0 overflow-hidden z-0 opacity-20">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-      </div>
-
       <motion.div
-        className="max-w-6xl mx-auto relative z-10"
+        className="max-w-4xl mx-auto"
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         variants={containerVariants}
       >
         {/* Section Title */}
-        <motion.div className="mb-16 text-center" variants={itemVariants}>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-100 relative inline-block">
-            <span className="relative z-10">
-              Hubungi <span className="text-teal-400">Saya</span>
-            </span>
-            <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400/30 via-amber-400/30 to-rose-400/30 -z-10"></span>
+        <motion.div className="mb-12 text-center" variants={itemVariants}>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            Get in Touch
           </h2>
-          <p className="mt-4 text-gray-400">
-            Mari berkolaborasi dan ciptakan sesuatu yang menakjubkan
+          <p className="mt-3 text-gray-600 max-w-md mx-auto">
+            Let's collaborate and create something amazing together
           </p>
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row gap-12">
+        <div className="flex flex-col lg:flex-row gap-8">
           {/* Contact Information */}
           <motion.div
-            className="w-full lg:w-1/2 space-y-8"
+            className="w-full lg:w-1/2 space-y-6"
             variants={itemVariants}
           >
-            <h3 className="text-2xl font-bold text-gray-100">
-              Informasi Kontak
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-4">
               {contactInfo.map((item, index) => (
                 <motion.div
                   key={index}
-                  className="bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all"
-                  whileHover={{ y: -5 }}
+                  className="p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+                  whileHover={{ x: 5 }}
                 >
-                  <div className={`flex items-center gap-4 ${item.color}`}>
-                    <div className="p-3 rounded-full bg-gray-700/50">
+                  <div className="flex items-center gap-4 text-gray-800">
+                    <div
+                      className="p-2 rounded-md bg-white shadow-sm text-[#0f3c4c]"
+                      aria-hidden="true"
+                    >
                       {item.icon}
                     </div>
                     <div>
-                      <h4 className="font-medium text-gray-300">
-                        {item.title}
-                      </h4>
+                      <h4 className="font-medium">{item.title}</h4>
                       {item.link ? (
                         <a
                           href={item.link}
-                          className="text-gray-400 hover:text-teal-400 transition-colors"
+                          className="text-gray-600 hover:text-[#0f3c4c] transition-colors"
                         >
                           {item.value}
                         </a>
                       ) : (
-                        <p className="text-gray-400">{item.value}</p>
+                        <p className="text-gray-600">{item.value}</p>
                       )}
                     </div>
                   </div>
@@ -164,20 +118,20 @@ const Contact = () => {
             </div>
 
             {/* Social Links */}
-            <div className="pt-6">
-              <h4 className="text-lg font-medium text-gray-300 mb-4">
-                Temui Saya Di
+            <div className="pt-2">
+              <h4 className="text-sm font-medium text-gray-500 mb-3">
+                FOLLOW ME
               </h4>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex gap-3">
                 {socialLinks.map((link, index) => (
                   <motion.a
                     key={index}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-4 rounded-full bg-gray-800 border border-gray-700 text-xl transition-colors ${link.color}`}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                    className="p-3 rounded-full bg-white shadow-sm text-gray-700 hover:text-[#0f3c4c] transition-colors"
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.95 }}
                     aria-label={link.label}
                   >
                     {link.icon}
@@ -189,68 +143,50 @@ const Contact = () => {
 
           {/* Contact Form */}
           <motion.div className="w-full lg:w-1/2" variants={itemVariants}>
-            <form className="bg-gray-800/80 backdrop-blur-sm p-8 rounded-xl border border-gray-700 space-y-6">
-              <h3 className="text-2xl font-bold text-gray-100 mb-6">
-                Kirim Pesan
-              </h3>
+            <form className="space-y-5">
+              <div className="space-y-1">
+                <label htmlFor="name" className="text-sm text-gray-600">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-[#0f3c4c] focus:border-[#0f3c4c]"
+                  placeholder="Your name"
+                />
+              </div>
 
-              <div className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-gray-300 mb-2">
-                    Nama Lengkap
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent text-gray-200"
-                    placeholder="Masukkan nama Anda"
-                  />
-                </div>
+              <div className="space-y-1">
+                <label htmlFor="email" className="text-sm text-gray-600">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-[#0f3c4c] focus:border-[#0f3c4c]"
+                  placeholder="your@email.com"
+                />
+              </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-gray-300 mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent text-gray-200"
-                    placeholder="Masukkan email Anda"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-gray-300 mb-2">
-                    Subjek
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent text-gray-200"
-                    placeholder="Apa yang ingin Anda bicarakan?"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-gray-300 mb-2">
-                    Pesan
-                  </label>
-                  <textarea
-                    id="message"
-                    rows="5"
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent text-gray-200"
-                    placeholder="Tulis pesan Anda di sini..."
-                  ></textarea>
-                </div>
+              <div className="space-y-1">
+                <label htmlFor="message" className="text-sm text-gray-600">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  rows="4"
+                  className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-[#0f3c4c] focus:border-[#0f3c4c]"
+                  placeholder="Hello, I'd like to talk about..."
+                ></textarea>
               </div>
 
               <motion.button
                 type="submit"
-                className="w-full py-3 px-6 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-medium rounded-lg hover:from-teal-600 hover:to-teal-700 transition-all shadow-lg"
+                className="w-full py-2.5 px-4 bg-[#0f3c4c] text-white font-medium rounded-md hover:bg-[#0d323f] transition-colors"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Kirim Pesan
+                Send Message
               </motion.button>
             </form>
           </motion.div>
