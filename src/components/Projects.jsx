@@ -8,6 +8,46 @@ const designProjects = {
   "Desain Grafis": [
     {
       id: 1,
+      title: "Desain Cover Buku Filsafat Komunikasi",
+      description:
+        "Cover buku akademik dengan pendekatan visual modern dan estetik",
+      fullDescription:
+        "Saya dipercaya untuk merancang cover buku 'Filsafat Komunikasi' karya dosen saya saat menjalani Kuliah Kerja Komunikasi. Desain ini merefleksikan nuansa akademik dengan pendekatan visual yang modern dan estetik, menyeimbangkan antara keseriusan topik filsafat dengan daya tarik visual.",
+      year: 2022,
+      imageUrl:
+        "https://www.dropbox.com/scl/fi/5ej8nbwku5av7nr7duzg8/cover-buku.jpg?rlkey=jbiynyeo1e326lvu39p6dl9b3&st=eo7mdkh7&raw=1",
+      tags: ["Book Design", "Typography", "Academic"],
+      client: "Galuh Patria Publisher – Yogyakarta",
+      deliverables: ["Book Cover Design"],
+    },
+    {
+      id: 2,
+      title: "Layout Buku The Journey of Idekata",
+      description: "Layout buku untuk komunitas penulisan muda",
+      fullDescription:
+        "Sebagai layout designer untuk buku 'The Journey of Idekata', saya bertanggung jawab menciptakan tata letak yang meningkatkan keterbacaan dan kenyamanan visual karya para penulis muda dalam komunitas tersebut. Desain ini memadukan elemen kreatif dengan struktur yang jelas untuk pengalaman membaca yang optimal.",
+      year: 2021,
+      imageUrl:
+        "https://www.dropbox.com/scl/fi/p8ruesl1j5dbqnc919c2u/416shots_so.png?rlkey=7ullwaepktnl8pyxamunwf2bb&st=7kiibtdj&raw=1",
+      tags: ["Layout Design", "Book Design", "Typography"],
+      client: "Komunitas Penulisan Muda Idekata – UIN Sunan Kalijaga",
+      deliverables: ["Book Layout", "Typesetting"],
+    },
+    {
+      id: 3,
+      title: "Banner Seminar Kebudayaan",
+      description: "Banner promosi seminar kebudayaan",
+      fullDescription:
+        "Merancang banner untuk Seminar Kebudayaan yang diselenggarakan oleh HMPS Ilmu Komunikasi UIN Sunan Kalijaga. Desain ini bertujuan menarik partisipasi peserta dengan visual yang mencerminkan semangat akademik dan kebudayaan lokal, menggabungkan elemen tradisional dengan gaya modern.",
+      year: 2021,
+      imageUrl:
+        "https://www.dropbox.com/scl/fi/qrv39ccjw7hjal1dr3voc/projeck.jpg?rlkey=m6l33f9djrwau8uj0qjpzb9ep&st=7qh1x0q9&raw=1",
+      tags: ["Event Design", "Print Media", "Banner"],
+      client: "HMPS Ilmu Komunikasi – UIN Sunan Kalijaga",
+      deliverables: ["Seminar Banner"],
+    },
+    {
+      id: 4,
       title: "Brand Identity for Coffee Haven",
       description:
         "Complete brand identity design for a premium coffee shop chain.",
@@ -33,23 +73,23 @@ const designProjects = {
         "Merchandise",
       ],
     },
+    // {
+    //   id: 5,
+    //   title: "Fashion Magazine Design",
+    //   description:
+    //     "Art direction and layout design for a quarterly fashion magazine.",
+    //   fullDescription:
+    //     "Developed a bold typographic system and innovative grid layouts to showcase high-fashion photography for a leading Indonesian fashion publication.",
+    //   year: 2023,
+    //   imageUrl:
+    //     "https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80",
+    //   tags: ["Layout Design", "Typography", "Art Direction"],
+    //   featured: true,
+    //   client: "Vogue Indonesia",
+    //   deliverables: ["Magazine Layouts", "Editorial Spreads"],
+    // },
     {
-      id: 3,
-      title: "Fashion Magazine Design",
-      description:
-        "Art direction and layout design for a quarterly fashion magazine.",
-      fullDescription:
-        "Developed a bold typographic system and innovative grid layouts to showcase high-fashion photography for a leading Indonesian fashion publication.",
-      year: 2023,
-      imageUrl:
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80",
-      tags: ["Layout Design", "Typography", "Art Direction"],
-      featured: true,
-      client: "Vogue Indonesia",
-      deliverables: ["Magazine Layouts", "Editorial Spreads"],
-    },
-    {
-      id: 4,
+      id: 6,
       title: "Malindo Food Pack",
       description: "Malindo Food Pack",
       fullDescription:
@@ -64,7 +104,20 @@ const designProjects = {
   ],
   "UI/UX": [
     {
-      id: 2,
+      id: 7,
+      title: "Desain Landing Page Drone",
+      description: "UI design untuk produk drone",
+      fullDescription:
+        "Selama masa magang di BuildWithAngga, saya berkolaborasi dengan tim kreatif untuk merancang landing page produk drone. Proyek ini menekankan pada penyampaian fitur teknologi secara visual yang interaktif dan menarik, dengan fokus pada user experience dan conversion rate.",
+      year: 2022,
+      imageUrl:
+        "https://www.dropbox.com/scl/fi/d99qww5hp0kas5s8dl03x/drone.webp?rlkey=gr3z6lqdpf1jtb2q6fit7fu2s&st=vxd2iqou&raw=1",
+      tags: ["Web Design", "Landing Page", "Product Design"],
+      client: "BuildWithAngga",
+      deliverables: ["Landing Page Design", "UI Kit"],
+    },
+    {
+      id: 8,
       title: "Tajuk Tani Mobile App UI/UX",
       description: "Tajuk Tani application design with modern interface",
       fullDescription:
@@ -83,7 +136,7 @@ const designProjects = {
 // Kompasiana articles data
 const kompasianaArticles = [
   {
-    id: 5,
+    id: 9,
     title: "Cara Jitu Bidik Biasiswa Luar Negeri",
     description: "Begini cara jitu bidik dan dapat beasiswa luar negeri.",
     fullDescription:
@@ -100,7 +153,7 @@ const kompasianaArticles = [
     publishedDate: "June 26, 2021",
   },
   {
-    id: 6,
+    id: 10,
     title: "Lima Rasa Percaya Diri yang Perlu Kita Hindari",
     description:
       "Segala sesuatu yang berlebihan itu buruk, termasuk kepercayaan diri.",
@@ -118,7 +171,7 @@ const kompasianaArticles = [
     publishedDate: "June 29, 2021",
   },
   {
-    id: 7,
+    id: 11,
     title: "Amunisi Wajib Seorang Backpacker",
     description: "Persiapan yang harus dimiliki oleh backpacker pemula",
     fullDescription:
@@ -135,7 +188,7 @@ const kompasianaArticles = [
     publishedDate: "June 28, 2021",
   },
   {
-    id: 8,
+    id: 12,
     title:
       "5 AI Open Source Terbaik di 2025: Pilihan Teratas untuk Developer dan Data Scientist",
     description:
@@ -154,7 +207,7 @@ const kompasianaArticles = [
     publishedDate: "February 2025",
   },
   {
-    id: 9,
+    id: 13,
     title: "Tips Jitu Mengatasi Mental Block Programmer di Tahun 2025",
     description:
       "Mental block saat ngoding bisa menghambat produktivitas programmer. Temukan cara mengatasi mental block dengan teknik relaksasi, pomodoro, dan strategi manajemen waktu yang efektif",
@@ -172,7 +225,7 @@ const kompasianaArticles = [
     publishedDate: "January 2025",
   },
   {
-    id: 10,
+    id: 14,
     title: "Mengapa Blogger Sulit Menyaingi WordPress dalam Hal SEO?",
     description:
       "Search Engine Optimization (SEO) adalah serangkaian strategi dan teknik yang digunakan untuk meningkatkan visibilitas suatu situs web di mesin pencari, seperti Google.",
@@ -189,7 +242,7 @@ const kompasianaArticles = [
     publishedDate: "December 2024",
   },
   {
-    id: 11,
+    id: 15,
     title:
       "Inilah Mengapa Python Tetap Menjadi Bahasa Pemrograman Terbaik untuk Dipelajari di 2025",
     description:
