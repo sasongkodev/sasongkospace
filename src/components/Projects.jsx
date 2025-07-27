@@ -1,6 +1,6 @@
 // src/components/Projects.jsx
 import { useState, useEffect } from "react";
-import { FiHeart, FiExternalLink, FiGithub, FiX, FiLink } from "react-icons/fi";
+import { FiHeart, FiExternalLink, FiX, FiLink, FiFolder } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Design projects by category
@@ -19,6 +19,8 @@ const designProjects = {
       tags: ["Book Design", "Typography", "Academic"],
       client: "Galuh Patria Publisher – Yogyakarta",
       deliverables: ["Book Cover Design"],
+      dropboxUrl:
+        "https://www.dropbox.com/scl/fi/5ej8nbwku5av7nr7duzg8/cover-buku.jpg?rlkey=jbiynyeo1e326lvu39p6dl9b3&dl=0",
     },
     {
       id: 2,
@@ -32,6 +34,8 @@ const designProjects = {
       tags: ["Layout Design", "Book Design", "Typography"],
       client: "Komunitas Penulisan Muda Idekata – UIN Sunan Kalijaga",
       deliverables: ["Book Layout", "Typesetting"],
+      dropboxUrl:
+        "https://www.dropbox.com/scl/fi/p8ruesl1j5dbqnc919c2u/416shots_so.png?rlkey=7ullwaepktnl8pyxamunwf2bb&dl=0",
     },
     {
       id: 3,
@@ -45,6 +49,8 @@ const designProjects = {
       tags: ["Event Design", "Print Media", "Banner"],
       client: "HMPS Ilmu Komunikasi – UIN Sunan Kalijaga",
       deliverables: ["Seminar Banner"],
+      dropboxUrl:
+        "https://www.dropbox.com/scl/fi/qrv39ccjw7hjal1dr3voc/projeck.jpg?rlkey=m6l33f9djrwau8uj0qjpzb9ep&dl=0",
     },
     {
       id: 4,
@@ -72,22 +78,9 @@ const designProjects = {
         "Packaging System",
         "Merchandise",
       ],
+      dropboxUrl:
+        "https://www.dropbox.com/scl/fi/osh82a6nlaj4tmbj5ihba/kopi.jpeg?rlkey=jk1l70fdpeyn8azso2rbtvjlz&dl=0",
     },
-    // {
-    //   id: 5,
-    //   title: "Fashion Magazine Design",
-    //   description:
-    //     "Art direction and layout design for a quarterly fashion magazine.",
-    //   fullDescription:
-    //     "Developed a bold typographic system and innovative grid layouts to showcase high-fashion photography for a leading Indonesian fashion publication.",
-    //   year: 2023,
-    //   imageUrl:
-    //     "https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80",
-    //   tags: ["Layout Design", "Typography", "Art Direction"],
-    //   featured: true,
-    //   client: "Vogue Indonesia",
-    //   deliverables: ["Magazine Layouts", "Editorial Spreads"],
-    // },
     {
       id: 6,
       title: "Malindo Food Pack",
@@ -100,6 +93,8 @@ const designProjects = {
       tags: ["Sustainable Design", "3D Mockups"],
       client: "Green Beauty Co.",
       deliverables: ["Primary Packaging", "Secondary Packaging"],
+      dropboxUrl:
+        "https://www.dropbox.com/scl/fi/kscpimyobd0p7k4m0u3as/pack.jpeg?rlkey=5tqup4ksnj0u42lq76xrlr26i&dl=0",
     },
   ],
   "UI/UX": [
@@ -115,6 +110,8 @@ const designProjects = {
       tags: ["Web Design", "Landing Page", "Product Design"],
       client: "BuildWithAngga",
       deliverables: ["Landing Page Design", "UI Kit"],
+      dropboxUrl:
+        "https://www.dropbox.com/scl/fi/d99qww5hp0kas5s8dl03x/drone.webp?rlkey=gr3z6lqdpf1jtb2q6fit7fu2s&dl=0",
     },
     {
       id: 8,
@@ -129,14 +126,89 @@ const designProjects = {
       featured: false,
       client: "TravelGo Inc.",
       deliverables: ["UI Kit", "Prototypes", "Design System"],
+      dropboxUrl:
+        "https://www.dropbox.com/scl/fi/z7195xn4er4z7yeeswkbo/mobile.jpeg?rlkey=um0x5kmv29umza7dhyust5qox&dl=0",
     },
   ],
 };
 
-// Kompasiana articles data
+// Kompasiana articles data (Updated with provided data)
 const kompasianaArticles = [
   {
     id: 9,
+    title: "Upgrade Pola Pikirmu Sebelum 20 Tahun",
+    description:
+      "Image captionTidak ada manusia yang sempurna, semua orang tahu. Semua orang, termasuk Anda, pasti pernah melakukan kesalahan. Kesalahan ini disengaja&",
+    imageUrl:
+      "https://assets-a1.kompasiana.com/items/album/2021/06/18/rowan-chestnut-smas-uxg4l0-unsplash-60cc1438bb44863d855f2b85.jpg?t=o&v=1200",
+    url: "https://www.kompasiana.com/wahyupujis17/60cc169c9f7b9d2e072adcf2/upgrade-pola-pikirmu-sebelum-20-tahun",
+    year: 2021,
+    tags: ["Pengembangan Diri"],
+    category: "Copywriting",
+    client: "Kompasiana",
+    deliverables: ["Online Article"],
+    fullDescription:
+      "Tidak ada manusia yang sempurna, semua orang tahu. Semua orang, termasuk Anda, pasti pernah melakukan kesalahan. Kesalahan ini disengaja atau tidak, besar atau kecil, semua pasti pernah terjadi. Namun, bagaimana kita memandang dan belajar dari kesalahan tersebut yang akan menentukan arah hidup kita. Artikel ini membahas pentingnya meng-upgrade pola pikir sebelum memasuki usia 20 tahun untuk membangun fondasi yang kuat di masa depan.",
+    readTime: "5 min read",
+    publishedDate: "June 18, 2021",
+  },
+  {
+    id: 10,
+    title: "Cara Efektif Bangun Sosial Branding",
+    description:
+      "Berikut ini bebera cara untuk membangun personal branding secara efektif.",
+    imageUrl:
+      "https://assets-a1.kompasiana.com/items/album/2021/06/10/jeff-sheldon-9syokyrq-re-unsplash-60c1f831d541df385a5af612.jpg?t=o&v=1200",
+    url: "https://www.kompasiana.com/wahyupujis17/60c1f91cd541df0b6a002622/cara-efektif-bangun-sosial-branding",
+    year: 2021,
+    tags: ["Karir", "Branding"],
+    category: "Copywriting",
+    client: "Kompasiana",
+    deliverables: ["Online Article"],
+    fullDescription:
+      "Personal branding adalah cara Anda mempresentasikan diri dan nilai-nilai Anda kepada dunia, terutama dalam konteks profesional. Dalam era digital ini, membangun personal branding yang kuat sangat penting untuk membuka peluang karir dan jaringan yang luas. Artikel ini memberikan langkah-langkah praktis untuk membangun sosial branding Anda secara efektif.",
+    readTime: "4 min read",
+    publishedDate: "June 10, 2021",
+  },
+  {
+    id: 11,
+    title: "Kerugian Menggunakan Software Almunium",
+    description:
+      "Berikut bahaya menggunakan software bajakan di komputer dan software pengganti software alumunium",
+    imageUrl:
+      "https://assets-a1.kompasiana.com/items/album/2021/06/06/mikaela-shannon-cln6n30q3sw-unsplash-60bcc6698ede48558e3388d6.jpg?t=o&v=1200",
+    url: "https://www.kompasiana.com/wahyupujis17/60bcc777d541df372b7b0af2/kerugian-menggunakan-software-almunium",
+    year: 2021,
+    tags: ["Teknologi", "Keamanan"],
+    category: "Copywriting",
+    client: "Kompasiana",
+    deliverables: ["Online Article"],
+    fullDescription:
+      "Software bajakan atau sering disebut 'software aluminium' mungkin terlihat menguntungkan secara finansial di awal, tetapi penggunaannya menyimpan berbagai risiko serius. Artikel ini mengupas tuntas kerugian dan bahaya yang ditimbulkan oleh penggunaan software bajakan, serta memberikan alternatif software legal dan gratis yang bisa digunakan.",
+    readTime: "6 min read",
+    publishedDate: "June 6, 2021",
+  },
+  {
+    id: 12,
+    title: "Yuk Kenalan dengan Pomodoro",
+    description:
+      "Konsep teknik pomodoro Ialah Dalam menyelesaikan sebuah tugas dibagi dalam blok blok waktu selama 25 menit .",
+    imageUrl:
+      "https://assets-a1.kompasiana.com/items/album/2021/03/11/smart-timepiece-backlight-alarm-clock-jp9901-or-jam-alarm-white-1-6049fa80d541df545746c7d2.jpg?t=o&v=1200",
+    url: "https://www.kompasiana.com/wahyupujis17/6049f920d541df65f374c604/yuk-kenalan-dengan-pomodoro",
+    year: 2021,
+    tags: ["Produktivitas", "Manajemen Waktu"],
+    category: "Copywriting",
+    client: "Kompasiana",
+    deliverables: ["Online Article"],
+    fullDescription:
+      "Teknik Pomodoro adalah metode manajemen waktu yang dikembangkan oleh Francesco Cirillo pada akhir tahun 1980-an. Teknik ini menggunakan timer untuk membagi waktu kerja menjadi interval-interval, secara tradisional 25 menit kerja yang diselingi dengan jeda pendek. Artikel ini menjelaskan konsep teknik Pomodoro dan bagaimana menerapkannya untuk meningkatkan fokus dan produktivitas.",
+    readTime: "3 min read",
+    publishedDate: "March 11, 2021",
+  },
+  // Existing articles from the original file
+  {
+    id: 13,
     title: "Cara Jitu Bidik Biasiswa Luar Negeri",
     description: "Begini cara jitu bidik dan dapat beasiswa luar negeri.",
     fullDescription:
@@ -153,7 +225,7 @@ const kompasianaArticles = [
     publishedDate: "June 26, 2021",
   },
   {
-    id: 10,
+    id: 14,
     title: "Lima Rasa Percaya Diri yang Perlu Kita Hindari",
     description:
       "Segala sesuatu yang berlebihan itu buruk, termasuk kepercayaan diri.",
@@ -171,7 +243,7 @@ const kompasianaArticles = [
     publishedDate: "June 29, 2021",
   },
   {
-    id: 11,
+    id: 15,
     title: "Amunisi Wajib Seorang Backpacker",
     description: "Persiapan yang harus dimiliki oleh backpacker pemula",
     fullDescription:
@@ -188,7 +260,7 @@ const kompasianaArticles = [
     publishedDate: "June 28, 2021",
   },
   {
-    id: 12,
+    id: 16,
     title:
       "5 AI Open Source Terbaik di 2025: Pilihan Teratas untuk Developer dan Data Scientist",
     description:
@@ -207,7 +279,7 @@ const kompasianaArticles = [
     publishedDate: "February 2025",
   },
   {
-    id: 13,
+    id: 17,
     title: "Tips Jitu Mengatasi Mental Block Programmer di Tahun 2025",
     description:
       "Mental block saat ngoding bisa menghambat produktivitas programmer. Temukan cara mengatasi mental block dengan teknik relaksasi, pomodoro, dan strategi manajemen waktu yang efektif",
@@ -225,7 +297,7 @@ const kompasianaArticles = [
     publishedDate: "January 2025",
   },
   {
-    id: 14,
+    id: 18,
     title: "Mengapa Blogger Sulit Menyaingi WordPress dalam Hal SEO?",
     description:
       "Search Engine Optimization (SEO) adalah serangkaian strategi dan teknik yang digunakan untuk meningkatkan visibilitas suatu situs web di mesin pencari, seperti Google.",
@@ -242,7 +314,7 @@ const kompasianaArticles = [
     publishedDate: "December 2024",
   },
   {
-    id: 15,
+    id: 19,
     title:
       "Inilah Mengapa Python Tetap Menjadi Bahasa Pemrograman Terbaik untuk Dipelajari di 2025",
     description:
@@ -264,7 +336,6 @@ const kompasianaArticles = [
 const ProjectCard = ({ project, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
-
   return (
     <motion.div
       className="relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl border border-gray-200"
@@ -282,11 +353,9 @@ const ProjectCard = ({ project, onClick }) => {
           animate={{ scale: isHovered ? 1.05 : 1 }}
           transition={{ duration: 0.5 }}
         />
-
         <div className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
           {project.category}
         </div>
-
         <button
           className={`absolute top-4 right-4 p-2 rounded-full backdrop-blur-sm transition-colors ${
             isLiked
@@ -301,15 +370,12 @@ const ProjectCard = ({ project, onClick }) => {
           <FiHeart className={`w-5 h-5 ${isLiked ? "fill-current" : ""}`} />
         </button>
       </div>
-
       <div className="p-6">
         <div className="flex justify-between items-start mb-2">
           <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
           <span className="text-sm text-gray-500">{project.year}</span>
         </div>
-
         <p className="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
-
         <div className="flex flex-wrap gap-2 mb-6">
           {project.tags.map((tag, index) => (
             <span
@@ -320,7 +386,6 @@ const ProjectCard = ({ project, onClick }) => {
             </span>
           ))}
         </div>
-
         {project.url && (
           <div className="flex items-center text-sm text-blue-600">
             <FiLink className="mr-1" />
@@ -354,7 +419,6 @@ const ProjectModal = ({ project, onClose }) => {
         >
           <FiX className="w-6 h-6" />
         </button>
-
         <div className="p-8">
           {project.category === "Copywriting" ? (
             <ArticleContent project={project} />
@@ -380,7 +444,6 @@ const DesignContent = ({ project }) => (
       <div className="md:w-1/2">
         <h3 className="text-2xl font-bold text-gray-900">{project.title}</h3>
         <p className="text-gray-700 mt-2">{project.fullDescription}</p>
-
         <div className="mt-6">
           <h4 className="text-lg font-medium text-gray-900 mb-4">
             Project Details
@@ -409,9 +472,20 @@ const DesignContent = ({ project }) => (
             </div>
           </div>
         </div>
+        {/* Tombol untuk membuka project di Dropbox */}
+        {project.dropboxUrl && (
+          <a
+            href={project.dropboxUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center mt-6 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shadow-md"
+          >
+            <FiFolder className="w-5 h-5 mr-2" />
+            Lihat Project di Dropbox
+          </a>
+        )}
       </div>
     </div>
-
     {project.colorPalette && (
       <div className="mt-8">
         <h4 className="text-xl font-bold text-gray-900 mb-4">Color Palette</h4>
@@ -450,7 +524,6 @@ const ArticleContent = ({ project }) => (
           <span>{project.readTime}</span>
         </div>
         <p className="text-gray-700 mt-4">{project.fullDescription}</p>
-
         <a
           href={project.url}
           target="_blank"
@@ -466,11 +539,12 @@ const ArticleContent = ({ project }) => (
 );
 
 export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState("Desain Grafis");
+  const [activeFilter, setActiveFilter] = useState("All"); // Default to "All"
   const [selectedProject, setSelectedProject] = useState(null);
   const [projectsList, setProjectsList] = useState([]);
 
-  const categories = ["Desain Grafis", "UI/UX", "Copywriting"];
+  // Include "All" in the categories array
+  const categories = ["All", "Desain Grafis", "UI/UX", "Copywriting"];
 
   useEffect(() => {
     let allProjects = [];
@@ -493,6 +567,7 @@ export default function Projects() {
     setProjectsList([...allProjects, ...writingProjects]);
   }, []);
 
+  // Filter projects based on activeFilter
   const filteredProjects = projectsList.filter((project) => {
     if (activeFilter === "All") return true;
     return project.category === activeFilter;
@@ -514,13 +589,13 @@ export default function Projects() {
             A showcase of my design projects and published articles.
           </p>
         </motion.div>
-
         <motion.div
           className="flex flex-wrap justify-center gap-3 mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
+          {/* Render buttons for all categories including "All" */}
           {categories.map((category) => (
             <motion.button
               key={category}
@@ -529,7 +604,7 @@ export default function Projects() {
                   ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200 shadow-sm"
               }`}
-              onClick={() => setActiveFilter(category)}
+              onClick={() => setActiveFilter(category)} // Set filter to "All", "Desain Grafis", etc.
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -537,13 +612,13 @@ export default function Projects() {
             </motion.button>
           ))}
         </motion.div>
-
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
+          {/* Map through filteredProjects */}
           {filteredProjects.map((project) => (
             <ProjectCard
               key={project.id}
@@ -553,7 +628,6 @@ export default function Projects() {
           ))}
         </motion.div>
       </div>
-
       <AnimatePresence>
         {selectedProject && (
           <ProjectModal
