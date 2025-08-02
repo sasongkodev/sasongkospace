@@ -3,11 +3,15 @@ import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
 
 const navLinks = [
-  
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
+  {
+    label: "Jasa Bikin Website",
+    href: "https://www.webhemat.web.id/",
+    external: true,
+  },
 ];
 
 export default function Navbar() {
@@ -45,10 +49,12 @@ export default function Navbar() {
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => setActiveLink(link.href)}
+                onClick={() => !link.external && setActiveLink(link.href)}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
               >
                 {link.label}
-                {activeLink === link.href && (
+                {activeLink === link.href && !link.external && (
                   <motion.span
                     layoutId="navActive"
                     className="absolute inset-0 rounded-full border border-teal-400/50"
@@ -96,14 +102,16 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   className={`block w-full px-4 py-3 rounded-lg font-medium transition-colors ${
-                    activeLink === link.href
+                    activeLink === link.href && !link.external
                       ? "bg-teal-400/20 text-teal-400 border border-teal-400/30"
                       : "text-gray-300 hover:bg-gray-800 hover:text-white"
                   }`}
                   onClick={() => {
                     setOpen(false);
-                    setActiveLink(link.href);
+                    !link.external && setActiveLink(link.href);
                   }}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
                 >
                   {link.label}
                 </a>

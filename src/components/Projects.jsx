@@ -1,6 +1,6 @@
 // src/components/Projects.jsx
 import { useState, useEffect } from "react";
-import { FiHeart, FiExternalLink, FiX, FiLink, FiFolder } from "react-icons/fi";
+import { FiHeart, FiExternalLink, FiX, FiFolder } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Design projects by category
@@ -132,13 +132,13 @@ const designProjects = {
   ],
 };
 
-// Kompasiana articles data (Updated with provided data)
+// Kompasiana articles data
 const kompasianaArticles = [
   {
     id: 9,
     title: "Upgrade Pola Pikirmu Sebelum 20 Tahun",
     description:
-      "Image captionTidak ada manusia yang sempurna, semua orang tahu. Semua orang, termasuk Anda, pasti pernah melakukan kesalahan. Kesalahan ini disengaja&",
+      "Tidak ada manusia yang sempurna, semua orang tahu. Semua orang, termasuk Anda, pasti pernah melakukan kesalahan. Kesalahan ini disengaja&",
     imageUrl:
       "https://assets-a1.kompasiana.com/items/album/2021/06/18/rowan-chestnut-smas-uxg4l0-unsplash-60cc1438bb44863d855f2b85.jpg?t=o&v=1200",
     url: "https://www.kompasiana.com/wahyupujis17/60cc169c9f7b9d2e072adcf2/upgrade-pola-pikirmu-sebelum-20-tahun",
@@ -206,7 +206,6 @@ const kompasianaArticles = [
     readTime: "3 min read",
     publishedDate: "March 11, 2021",
   },
-  // Existing articles from the original file
   {
     id: 13,
     title: "Cara Jitu Bidik Biasiswa Luar Negeri",
@@ -333,6 +332,94 @@ const kompasianaArticles = [
   },
 ];
 
+// Web Development Projects (dibuat dengan WordPress)
+const webProjects = [
+  {
+    id: 20,
+    title: "Globe Trekker",
+    description: "Travel website untuk eksplorasi destinasi global",
+    fullDescription:
+      "Website travel yang dirancang untuk membantu pengguna merencanakan perjalanan internasional. Dibangun dengan react menggunakan tema kustom dan page builder untuk tampilan responsif dan performa optimal. Fitur mencakup halaman destinasi, blog perjalanan, dan sistem navigasi yang mudah digunakan. Website ini dioptimalkan untuk SEO dan mobile experience.",
+    year: 2025,
+    imageUrl:
+      "https://www.dropbox.com/scl/fi/fe9psojf6iub3rnnrc07p/Screenshot-from-2025-08-02-08-49-38.png?rlkey=3uqn88ngjoouzapx0ufnn5dng&st=lefjg7j6&raw=1",
+    tags: ["React", "SEO", "Responsive Design", "Travel Website"],
+    client: "Globe Trekker",
+    deliverables: ["Website Development", "Content Management", "SEO Setup"],
+    url: "https://globe-trekker-nu.vercel.app/",
+    category: "Web Development",
+  },
+  {
+    id: 21,
+    title: "Altaf Food",
+    description: "Website UMKM kuliner khas Medan",
+    fullDescription:
+      "Website untuk UMKM makanan khas Medan yang menonjolkan kelezatan dan keaslian cita rasa lokal. Dibangun dengan WordPress, menggunakan tema lightweight untuk kecepatan loading dan integrasi media sosial. Fokus pada galeri makanan berkualitas tinggi dan formulir kontak yang terintegrasi dengan WhatsApp untuk pemesanan langsung.",
+    year: 2025,
+    imageUrl:
+      "https://www.dropbox.com/scl/fi/mg910ifrpjq1hagrus59p/Screenshot-from-2025-07-08-11-05-19.png?rlkey=dwmemtdrzm50y1vi6lccknny1&st=91s1plh0&raw=1",
+    tags: ["WordPress", "UMKM", "WhatsApp Integration", "Food Website"],
+    client: "Altaf Food",
+    deliverables: [
+      "Website Development",
+      "Menu Showcase",
+      "Contact Integration",
+    ],
+    url: "https://altaffood.id/",
+    category: "Web Development",
+  },
+  {
+    id: 22,
+    title: "Berbagi Karya",
+    description: "Platform blog berita dan komunitas kreatif",
+    fullDescription:
+      "Platform digital berbasis WordPress yang digunakan sebagai sumber berita dan tempat berkarya bagi komunitas seni dan kreatif. Menggunakan struktur kategori dan tagging yang terorganisir untuk memudahkan navigasi konten. Dilengkapi dengan sistem komentar dan fitur share media sosial untuk meningkatkan keterlibatan pembaca.",
+    year: 2025,
+    imageUrl:
+      "https://dl.dropboxusercontent.com/scl/fi/59iheyhqxmnm4v7uqyyff/Screenshot-from-2025-08-02-09-06-02.png?rlkey=jb8snes34b1ey17of72sob2xr&st=p28nehai",
+    tags: ["WordPress", "Blog", "News Platform", "Content Management"],
+    client: "Berbagi Karya",
+    deliverables: ["Blog Setup", "Content Architecture", "Social Integration"],
+    url: "https://berbagikarya.com/",
+    category: "Web Development",
+  },
+  {
+    id: 23,
+    title: "NgobrolIT",
+    description: "Blog teknologi untuk developer dan IT enthusiast",
+    fullDescription:
+      "Website blog teknologi yang membahas AI, programming, dan tren digital. Dibangun dengan WordPress dan dioptimalkan untuk SEO, dengan struktur kategori dan tagging yang rapi. Menggunakan caching dan CDN untuk performa cepat, serta desain responsif yang ramah pembaca. Konten dikelola secara rutin dengan sistem editorial yang terstruktur.",
+    year: 2025,
+    imageUrl:
+      "https://www.dropbox.com/scl/fi/nognscj5zz3x0i8bw3ofm/Screenshot-from-2025-08-02-08-50-33.png?rlkey=9x1pqmbh18wyct7t6wxfvotec&st=ibhmoy0a&raw=1",
+    tags: ["WordPress", "SEO", "Tech Blog", "Content Strategy"],
+    client: "NgobrolIT",
+    deliverables: ["Blog Development", "SEO Optimization", "Editorial System"],
+    url: "https://ngobrolit.com/",
+    category: "Web Development",
+  },
+  {
+    id: 24,
+    title: "Auto Bintan Taxi",
+    description: "Website layanan taksi online di Bintan",
+    fullDescription:
+      "Website resmi layanan taksi online di Bintan, Kepulauan Riau, yang dibangun dengan WordPress untuk kemudahan pembaruan konten. Menampilkan informasi layanan, tarif, dan formulir pemesanan yang langsung terhubung ke WhatsApp. Integrasi Google Maps membantu pengguna memperkirakan rute dan waktu perjalanan. Desain responsif memastikan akses mudah dari perangkat mobile.",
+    year: 2025,
+    imageUrl:
+      "https://www.dropbox.com/scl/fi/8vs9xwlt9ceise7upe9pm/Screenshot-from-2025-08-02-08-51-25.png?rlkey=k6n0rwe6em894cgdin4uyl5td&st=ugxv3nux&raw=1",
+    tags: [
+      "WordPress",
+      "WhatsApp Integration",
+      "Google Maps",
+      "Travel Service",
+    ],
+    client: "Auto Bintan Taxi",
+    deliverables: ["Website Development", "Booking Form", "Map Integration"],
+    url: "https://www.autobintantaxi.com/",
+    category: "Web Development",
+  },
+];
+
 const ProjectCard = ({ project, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
@@ -388,8 +475,8 @@ const ProjectCard = ({ project, onClick }) => {
         </div>
         {project.url && (
           <div className="flex items-center text-sm text-blue-600">
-            <FiLink className="mr-1" />
-            <span>Read Article</span>
+            <FiExternalLink className="mr-1" />
+            <span>Visit Website</span>
           </div>
         )}
       </div>
@@ -472,37 +559,30 @@ const DesignContent = ({ project }) => (
             </div>
           </div>
         </div>
-        {/* Tombol untuk membuka project di Dropbox */}
+        {project.url && (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center mt-6 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shadow-md"
+          >
+            <FiExternalLink className="w-5 h-5 mr-2" />
+            Kunjungi Website
+          </a>
+        )}
         {project.dropboxUrl && (
           <a
             href={project.dropboxUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center mt-6 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shadow-md"
+            className="inline-flex items-center mt-3 px-4 py-2 bg-gray-700 hover:bg-gray-800 text-white rounded-lg transition-colors shadow-md"
           >
             <FiFolder className="w-5 h-5 mr-2" />
-            Lihat Project di Dropbox
+            Lihat di Dropbox
           </a>
         )}
       </div>
     </div>
-    {project.colorPalette && (
-      <div className="mt-8">
-        <h4 className="text-xl font-bold text-gray-900 mb-4">Color Palette</h4>
-        <div className="grid grid-cols-5 gap-4">
-          {project.colorPalette.map((color, i) => (
-            <div key={i} className="flex flex-col items-center">
-              <div
-                className="w-full h-16 rounded-lg mb-2 border border-gray-300"
-                style={{ backgroundColor: color.hex }}
-              />
-              <p className="text-gray-900 text-sm">{color.name}</p>
-              <p className="text-gray-500 text-xs">{color.hex}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    )}
   </div>
 );
 
@@ -539,12 +619,17 @@ const ArticleContent = ({ project }) => (
 );
 
 export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState("All"); // Default to "All"
+  const [activeFilter, setActiveFilter] = useState("All");
   const [selectedProject, setSelectedProject] = useState(null);
   const [projectsList, setProjectsList] = useState([]);
 
-  // Include "All" in the categories array
-  const categories = ["All", "Desain Grafis", "UI/UX", "Copywriting"];
+  const categories = [
+    "All",
+    "Desain Grafis",
+    "UI/UX",
+    "Web Development",
+    "Copywriting",
+  ];
 
   useEffect(() => {
     let allProjects = [];
@@ -558,16 +643,14 @@ export default function Projects() {
       ];
     });
 
-    // Add copywriting articles with their category
     const writingProjects = kompasianaArticles.map((article) => ({
       ...article,
       category: "Copywriting",
     }));
 
-    setProjectsList([...allProjects, ...writingProjects]);
+    setProjectsList([...allProjects, ...webProjects, ...writingProjects]);
   }, []);
 
-  // Filter projects based on activeFilter
   const filteredProjects = projectsList.filter((project) => {
     if (activeFilter === "All") return true;
     return project.category === activeFilter;
@@ -586,16 +669,16 @@ export default function Projects() {
             My <span className="text-blue-600">Creative Portfolio</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A showcase of my design projects and published articles.
+            A showcase of my design, development, and content writing projects.
           </p>
         </motion.div>
+
         <motion.div
           className="flex flex-wrap justify-center gap-3 mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          {/* Render buttons for all categories including "All" */}
           {categories.map((category) => (
             <motion.button
               key={category}
@@ -604,7 +687,7 @@ export default function Projects() {
                   ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200 shadow-sm"
               }`}
-              onClick={() => setActiveFilter(category)} // Set filter to "All", "Desain Grafis", etc.
+              onClick={() => setActiveFilter(category)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -612,13 +695,13 @@ export default function Projects() {
             </motion.button>
           ))}
         </motion.div>
+
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
-          {/* Map through filteredProjects */}
           {filteredProjects.map((project) => (
             <ProjectCard
               key={project.id}
@@ -628,6 +711,7 @@ export default function Projects() {
           ))}
         </motion.div>
       </div>
+
       <AnimatePresence>
         {selectedProject && (
           <ProjectModal

@@ -1,7 +1,7 @@
 // src/components/Contact.jsx
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FaPhone, FaRegEnvelope } from "react-icons/fa";
+import { FaRegEnvelope, FaPaperPlane } from "react-icons/fa";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Contact = () => {
@@ -26,34 +26,19 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      href: "https://github.com/ ",
+      href: "https://https://github.com/sasongkodev.com/",
       icon: <FaGithub className="text-lg" />,
       label: "GitHub",
     },
+    // {
+    //   href: "https://twitter.com/",
+    //   icon: <FaTwitter className="text-lg" />,
+    //   label: "Twitter",
+    // },
     {
-      href: "https://twitter.com/ ",
-      icon: <FaTwitter className="text-lg" />,
-      label: "Twitter",
-    },
-    {
-      href: "https://linkedin.com/ ",
+      href: "https://www.linkedin.com/in/wahyu-puji-sasongko-435a24207/",
       icon: <FaLinkedin className="text-lg" />,
       label: "LinkedIn",
-    },
-  ];
-
-  const contactInfo = [
-    {
-      icon: <FaRegEnvelope className="text-lg" />,
-      title: "Email",
-      value: "sapa@wahyupuji.com",
-      link: "mailto:sapa@wahyupuji.com",
-    },
-    {
-      icon: <FaPhone className="text-lg" />,
-      title: "Phone",
-      value: "+62 812-3456-7890",
-      link: "tel:+6281234567890",
     },
   ];
 
@@ -61,7 +46,7 @@ const Contact = () => {
     <section
       id="contact"
       ref={ref}
-      className="w-full py-20 px-4 sm:px-6 bg-gray-50"
+      className="w-full py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-50 to-gray-100"
     >
       <motion.div
         className="max-w-4xl mx-auto"
@@ -70,122 +55,122 @@ const Contact = () => {
         variants={containerVariants}
       >
         {/* Section Title */}
-        <motion.div className="mb-12 text-center" variants={itemVariants}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Get in Touch
+        <motion.div className="mb-16 text-center" variants={itemVariants}>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+            Let's Connect
           </h2>
-          <p className="mt-3 text-gray-600 max-w-md mx-auto">
-            Let's collaborate and create something amazing together
+          <div className="w-20 h-1 bg-teal-400 mx-auto rounded-full"></div>
+          <p className="mt-6 text-gray-600 max-w-md mx-auto">
+            Have a project in mind or want to collaborate? Drop me a message!
           </p>
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Contact Information */}
+        <div className="flex flex-col lg:flex-row gap-12">
+          {/* Email Information */}
           <motion.div
-            className="w-full lg:w-1/2 space-y-6"
+            className="w-full lg:w-1/2 flex flex-col items-center lg:items-start"
             variants={itemVariants}
           >
-            <div className="space-y-4">
-              {contactInfo.map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
-                  whileHover={{ x: 5 }}
+            <div className="p-6 bg-white rounded-xl shadow-sm border border-gray-200 w-full max-w-md">
+              <div className="flex flex-col items-center text-center lg:text-left lg:items-start">
+                <div className="p-3 mb-4 rounded-full bg-teal-50 text-teal-500">
+                  <FaRegEnvelope className="text-2xl" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  Email Me
+                </h3>
+                <a
+                  href="mailto:sapa@wahyupuji.com"
+                  className="text-lg text-teal-600 hover:text-teal-700 transition-colors font-medium mb-6"
                 >
-                  <div className="flex items-center gap-4 text-gray-800">
-                    <div
-                      className="p-2 rounded-md bg-white shadow-sm text-[#0f3c4c]"
-                      aria-hidden="true"
-                    >
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-medium">{item.title}</h4>
-                      {item.link ? (
-                        <a
-                          href={item.link}
-                          className="text-gray-600 hover:text-[#0f3c4c] transition-colors"
-                        >
-                          {item.value}
-                        </a>
-                      ) : (
-                        <p className="text-gray-600">{item.value}</p>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                  sapa@wahyupuji.com
+                </a>
+                <p className="text-gray-500 mb-6">
+                  I typically respond within 24 hours. Looking forward to
+                  hearing from you!
+                </p>
+              </div>
 
-            {/* Social Links */}
-            <div className="pt-2">
-              <h4 className="text-sm font-medium text-gray-500 mb-3">
-                FOLLOW ME
-              </h4>
-              <div className="flex gap-3">
-                {socialLinks.map((link, index) => (
-                  <motion.a
-                    key={index}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-full bg-white shadow-sm text-gray-700 hover:text-[#0f3c4c] transition-colors"
-                    whileHover={{ y: -3 }}
-                    whileTap={{ scale: 0.95 }}
-                    aria-label={link.label}
-                  >
-                    {link.icon}
-                  </motion.a>
-                ))}
+              {/* Social Links */}
+              <div className="pt-4 border-t border-gray-100">
+                <h4 className="text-sm font-medium text-gray-500 mb-4 text-center lg:text-left">
+                  OR CONNECT VIA
+                </h4>
+                <div className="flex justify-center lg:justify-start gap-4">
+                  {socialLinks.map((link, index) => (
+                    <motion.a
+                      key={index}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full bg-gray-50 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors"
+                      whileHover={{ y: -3 }}
+                      whileTap={{ scale: 0.95 }}
+                      aria-label={link.label}
+                    >
+                      {link.icon}
+                    </motion.a>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
 
           {/* Contact Form */}
           <motion.div className="w-full lg:w-1/2" variants={itemVariants}>
-            <form className="space-y-5">
-              <div className="space-y-1">
-                <label htmlFor="name" className="text-sm text-gray-600">
-                  Name
+            <form className="space-y-6 bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+              <div className="space-y-2">
+                <label
+                  htmlFor="name"
+                  className="text-sm font-medium text-gray-700"
+                >
+                  Your Name
                 </label>
                 <input
                   type="text"
                   id="name"
-                  className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-[#0f3c4c] focus:border-[#0f3c4c]"
-                  placeholder="Your name"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all"
+                  placeholder="John Doe"
                 />
               </div>
 
-              <div className="space-y-1">
-                <label htmlFor="email" className="text-sm text-gray-600">
-                  Email
+              <div className="space-y-2">
+                <label
+                  htmlFor="email"
+                  className="text-sm font-medium text-gray-700"
+                >
+                  Your Email
                 </label>
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-[#0f3c4c] focus:border-[#0f3c4c]"
-                  placeholder="your@email.com"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all"
+                  placeholder="john@example.com"
                 />
               </div>
 
-              <div className="space-y-1">
-                <label htmlFor="message" className="text-sm text-gray-600">
-                  Message
+              <div className="space-y-2">
+                <label
+                  htmlFor="message"
+                  className="text-sm font-medium text-gray-700"
+                >
+                  Your Message
                 </label>
                 <textarea
                   id="message"
-                  rows="4"
-                  className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-[#0f3c4c] focus:border-[#0f3c4c]"
-                  placeholder="Hello, I'd like to talk about..."
+                  rows="5"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all"
+                  placeholder="Hello, I'd like to discuss..."
                 ></textarea>
               </div>
 
               <motion.button
                 type="submit"
-                className="w-full py-2.5 px-4 bg-[#0f3c4c] text-white font-medium rounded-md hover:bg-[#0d323f] transition-colors"
-                whileHover={{ scale: 1.02 }}
+                className="w-full py-3 px-6 bg-teal-500 text-white font-medium rounded-lg hover:bg-teal-600 transition-colors flex items-center justify-center gap-2"
+                whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
+                <FaPaperPlane />
                 Send Message
               </motion.button>
             </form>
